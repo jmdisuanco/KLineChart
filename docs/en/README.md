@@ -27,37 +27,129 @@ chart.applyNewData([
 ## API
 ### Chart
 ```js
+// Initialize a chart
+// ds can be one of div node, node id and node class
+// options style configuration, please refer to style details
 init(ds, options)
+
+// Destroy a chart. Once destroyed, the chart will no longer be available.
+// dcs can be one of div node, node id, node class and chart instance
 dispose(dcs)
+
+// Get the version number of the chart
 version()
 ```
 
 ### Chart instance
 ```js
+// Set style configuration
+// options style configuration, please refer to style details
 setStyleOptions(options)
+
+// Get style configuration
 getStyleOptions()
+
+// Set parameters of technical indicators
+// technicalIndicatorType Technical indicator type, for details of the type, please refer to technical indicator
+// params technical index calculation parameters, please refer to technical index parameters for details
 setTechnicalIndicatorParams(technicalIndicatorType, params)
+
+// Get all technical index parameters
 getTechnicalIndicatorParamOptions()
+
+// Set precision
+// pricePrecision price accuracy, which affects the numerical accuracy of the price displayed on the entire chart, also includes technical indicators MA, EMA, BOLL, SAR, excluding the y-axis scale value
+// volumePrecision quantity accuracy, which affects the numerical accuracy of the price displayed on the entire chart, also includes the technical indicator VOL, excluding the y-axis scale value
 setPrecision(pricePrecision, volumePrecision)
+
+// Set the time zone
+// timezone time zone name, such as 'Asia/Shanghai'
+// If not set, it will automatically get the local time zone
+// Please refer to the list of names corresponding to the time zone to find related documents
 setTimezone(timezone)
+
+// Adjust the size of the chart, it will always fill the size of the container
+// Note: This method will recalculate the size of each module of the entire chart, frequent calls may affect performance, please call carefully
 resize()
+
+// Set the gap that can be left on the right side of the chart
 setOffsetRightSpace(space)
+
+// Set the minimum number of candles visible on the left
 setLeftMinVisibleBarCount(barCount)
+
+// Set the minimum number of candles visible on the right
 setRightMinVisibleBarCount(barCount)
+
+// Set the space occupied by a piece of data in the chart
 setDataSpace(space)
+
+// Add new data
+// This method will clear the chart data, no need to call the clearData method
+// dataList is a KLineData array. For details of KLineData type, please refer to the data source
+// more tells the chart whether there is more historical data, can be default, the default is true
 applyNewData(dataList, more)
+
+// Add more historical data
+// dataList is a KLineData array. For details of KLineData type, please refer to the data source
+// more tells the chart whether there is more historical data, can be default, the default is true
 applyMoreData(dataList, more)
+
+// update data
+// At present, only the timestamp of the last piece of data will be matched.
 updateData(data)
+
+// Get the current data source of the chart
 getDataList()
+
+// Clear data
+// In general, clearing data is to add new data. In order to avoid repeated drawing, all here is just to clear the data, the chart will not be redrawn
 clearData()
+
+// Set to load more callback functions
+// cb is a callback method, the callback parameter is the timestamp of the first piece of data
 loadMore(cb)
+
+// Set candle chart type
+// The types are 'candle_stick' and 'real_time'
 setCandleStickChartType(chartType)
+
+// Set the type of technical indicator on the candlestick
+// theoretically support all technical indicators supported by the current chart
+// Generally speaking, just set 'NO', 'MA', 'EMA', 'BOLL', 'SAR', when set to 'NO' it will not be displayed
 setCandleStickTechnicalIndicatorType(technicalIndicatorType)
+
+// Add technical indicator chart
+// technicalIndicatorType Technical indicator type, please refer to the technical indicators for details, can default, the default is 'MACD'
+// height The height of the technical indicator chart, which can be the default, the default is 100
+// Whether the dragEnabled technical indicator graph can be dragged to adjust the height, which can be the default and the default is true
+// The return value is a string-type technical indicator chart identifier, which is very important, and some subsequent operations on the chart require this identifier
 addTechnicalIndicator(technicalIndicatorType, height, dragEnabled)
+
+// Set the indicator type of other technical indicator graphs
+// technicalIndicatorType Technical indicator type. When technicalIndicatorType is 'NO', the chart will remove the current technical indicator chart. For details of the type, please refer to technical indicators
+// tag technical indicator chart identification
 setTechnicalIndicatorType(tag, technicalIndicatorType)
+
+// Remove the technical indicator graph
+// tag technical indicator chart identification
 removeTechnicalIndicator(tag)
+
+// Add graphic mark
+// Input parameter type:
+// 'none', 'horizontalStraightLine', 'verticalStraightLine', 'straightLine', 'horizontalRayLine'
+// 'verticalRayLine', 'rayLine', 'horizontalSegmentLine', 'verticalSegmentLine', 'segmentLine'
+// 'priceLine', 'priceChannelLine', 'parallelStraightLine', 'fibonacciLine'
 addGraphicMark(graphicMarkType)
+
+// remove all graphics marks
 removeAllGraphicMark()
+
+// Get the picture url after the chart is converted into a picture
+// Whether includeFloatLayer needs to include floating layer, can be default
+// includeGraphicMark, default
+// type The type of the converted picture. The type is one of three types: 'png', 'jpeg', and 'bmp'. It can be the default, and the default is 'jpeg'
+// backgroundColor background color, can be default, the default is '# 333333'
 getConvertPictureUrl(includeFloatLayer, includeGraphicMark, type, backgroundColor)
 ```
 
