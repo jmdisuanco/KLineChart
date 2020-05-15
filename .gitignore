@@ -2,3 +2,6 @@
 /.idea
 package-lock.json
 /homepage
+/dist/dev*.*
+/dist/style*.*
+/.cache
