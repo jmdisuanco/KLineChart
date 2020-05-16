@@ -29,7 +29,7 @@ const chartTypeControl = QuickSettings.create(1, 790, 'Chart Type', parent);
 const chartIndicator = QuickSettings.create(window.innerWidth - 210, 1, 'Chart Indicators', parent); 
 const chartActiveIndicatorControl = QuickSettings.create(window.innerWidth - 410, 1, 'Active Indicators', parent); 
 
-const indicators=['NO' , 'MA' , 'EMA' , 'VOL' , 'MACD' , 'BOLL' , 'KDJ' , 'RSI' , 'BIAS' , 'BRAR' , 'CCI' , 'DMI' , 'CR' , 'PSY' , 'DMA' , 'TRIX' , 'OBV' , 'VR' , 'WR' , 'MTM' , 'EMV' , 'SAR']
+const indicators=['NO' , 'MA' , 'EMA' , 'VOL' , 'MACD' , 'BOLL' , 'KDJ' , 'RSI' , 'BIAS' , 'BRAR' , 'CCI' , 'DMI' , 'CR' , 'PSY' , 'DMA' , 'TRIX' , 'OBV' , 'VR' , 'WR' , 'MTM' , 'EMV' , 'SAR', 'JM']
 const graphicMarks = ['horizontalStraightLine' , 'verticalStraightLine' , 'straightLine' , 'horizontalRayLine' , 'verticalRayLine' , 'rayLine' , 'horizontalSegmentLine' , 'verticalSegmentLine' , 'segmentLine' , 'priceLine' , 'priceChannelLine' , 'parallelStraightLine' , 'fibonacciLine']
 const chartTypes = ['candle_stick','real_time']
 let activeIndicators=[]

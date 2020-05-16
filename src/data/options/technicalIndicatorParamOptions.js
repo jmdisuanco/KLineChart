@@ -35,7 +35,8 @@ export const TechnicalIndicatorType = {
   WR: 'WR',
   MTM: 'MTM',
   EMV: 'EMV',
-  SAR: 'SAR'
+  SAR: 'SAR',
+  JM:'JM'
 }
 
 export const defaultTechnicalIndicatorParamOptions = {
@@ -59,7 +60,8 @@ export const defaultTechnicalIndicatorParamOptions = {
   [TechnicalIndicatorType.WR]: [13, 34, 89],
   [TechnicalIndicatorType.MTM]: [6, 10],
   [TechnicalIndicatorType.EMV]: [14, 9],
-  [TechnicalIndicatorType.SAR]: [2, 2, 20]
+  [TechnicalIndicatorType.SAR]: [2, 2, 20],
+  [TechnicalIndicatorType.JM]: [2, 2, 20,40]
 }
 
 /**
@@ -195,6 +197,11 @@ export function getTechnicalIndicatorDataKeysAndValues (kLineData, technicalIndi
     case TechnicalIndicatorType.SAR: {
       keys = ['sar']
       values = [technicalIndicatorData.sar]
+      break
+    }
+    case TechnicalIndicatorType.JM: {
+      keys = ['j','o','h','n']
+      values = [technicalIndicatorData.j,technicalIndicatorData.o,technicalIndicatorData.h,technicalIndicatorData.n]
       break
     }
   }

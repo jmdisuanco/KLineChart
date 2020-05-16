@@ -85,6 +85,7 @@ export default class TechnicalIndicatorView extends View {
         const values = keysAndValues.values
         const lineValues = [...values]
         switch (technicalIndicatorType) {
+          case TechnicalIndicatorType.JM: 
           case TechnicalIndicatorType.MA:
           case TechnicalIndicatorType.EMA:
           case TechnicalIndicatorType.BOLL: {
@@ -94,6 +95,14 @@ export default class TechnicalIndicatorView extends View {
             )
             break
           }
+          // case TechnicalIndicatorType.JM: {
+          //   // console.log(halfBarSpace)
+          //   // this._drawTechnicalIndicatorOhlc(
+          //   //   i, x, 1, technicalIndicatorOptions,
+          //   //   kLineData, this._yAxis.isCandleStickYAxis()
+          //   // )
+          //   break
+          // }
           case TechnicalIndicatorType.MACD: {
             lineValues.splice(lineValues.length - 1, 1)
             const macd = values[values.length - 1]
@@ -128,6 +137,7 @@ export default class TechnicalIndicatorView extends View {
             this._drawBars(x, halfBarSpace, num, true)
             break
           }
+          
           case TechnicalIndicatorType.SAR: {
             lineValues.splice(0, 1)
             const sar = values[0]
